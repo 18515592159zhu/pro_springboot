@@ -1,0 +1,31 @@
+#开启debug模式，输出调试信息，常用于检查系统运行状况
+#debug: true
+
+#设置日志级别，root表示根节点，即整体应用日志级别
+#logging:
+#  level:
+#    root: debug
+
+logging:
+  #设置日志组
+  group:
+    #自定义组名，设置当前组中所包含的包
+    ebank: com.itheima.controller
+  level:
+    root: warn
+    #为对应组设置日志级别
+    ebank: debug
+    #为对包设置日志级别
+    com.itheima.controller: debug
+  #设置日志模板格式
+  pattern:
+    #console: "%d - %m %n"
+    console: "%d %clr(%p) --- [%16t] %clr(%-40.40c){cyan} : %m %n"
+  #设置日志文件名
+  file:
+    name: server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 4KB
+      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
+

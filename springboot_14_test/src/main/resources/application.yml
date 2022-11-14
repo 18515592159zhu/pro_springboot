@@ -1,0 +1,27 @@
+test:
+  prop: testValue
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+      username: root
+      password: root
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+testcase:
+  book:
+    id: ${random.int}                  #随机整数
+    id2: ${random.int(10)}             #10以内随机数
+    type: ${random.int!5,10!}          #10到20随机数
+    name: ${random.value}              #随机字符串，MD5字符串，32位
+    uuid: ${random.uuid}               #随机uuid
+    publishTime: ${random.long}        #随机整数（long范围）
